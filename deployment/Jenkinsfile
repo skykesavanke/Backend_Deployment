@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch:'master',url:'https://github.com/skykesavanke/Cluster_Creation.git'
+            }
+        }
+       
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    
+                    bat 'aws eks update-kubeconfig --region us-east-1 --name new-cluster'
+
+                   
+                    bat 'kubectl version --client'
+
+                   
+                    bat 'kubectl apply -f ./Deploy/deployment.yaml'
+
+                  
+                    bat 'kubectl apply -f ./Deploy/service.yaml'
+
+                    bat 'kubectl get services'
+                }
+            }
+        }
+    }
+}

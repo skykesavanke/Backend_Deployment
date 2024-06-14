@@ -4,7 +4,7 @@ metadata:
   name: springboot-deployment
 spec:
   selector:
-    app: springEKS
+    app: springboot-deployment
   ports:
     - protocol: TCP
       port: 80

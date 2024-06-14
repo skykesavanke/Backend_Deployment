@@ -6,14 +6,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: springEKS
+      app: springboot-deployment
   template:
     metadata:
       labels:
-        app: springEKS
+        app: springboot-deployment
     spec:
       containers:
-        - name: Spring Using EKS
-          image:
+        - name: springconatiner
+          image: 211125415675.dkr.ecr.us-east-1.amazonaws.com/springapp:latest
           ports:
             - containerPort: 8080
