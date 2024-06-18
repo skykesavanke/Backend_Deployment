@@ -9,7 +9,7 @@ pipeline{
     environment {
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        IMAGE_REPO_NAME = "new-cluster-repo"
+        IMAGE_REPO_NAME = "springapp-cluster-repo"
         AWS_REGION = 'us-east-1'
         ECR_URL= "211125415675.dkr.ecr.${AWS_REGION}.amazonaws.com"
     }
@@ -18,7 +18,7 @@ pipeline{
         stage('Checkout Code'){
             steps{
                 script{
-                     git branch: 'master',url:'https://github.com/skykesavanke/Cluster_Creation.git'
+                     git branch: 'main',url:'https://github.com/skykesavanke/Backend_Deployment.git'
                 }
                
         }
@@ -83,9 +83,9 @@ pipeline{
              }  
     }
 
-        stage('Trigger Deployment Pipeline'){
+        stage('Trigger Another Pipeline'){
             steps{
-                build job : 'Deployment_of_cluster'
+                build job : 'Backend_deployment_EKS'
             }
         }
     }

@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch:'master',url:'https://github.com/skykesavanke/Cluster_Creation.git'
+                git branch:'main',url:'https://github.com/skykesavanke/Backend_Deployment.git'
             }
         }
        
@@ -13,16 +13,16 @@ pipeline {
             steps {
                 script {
                     
-                    bat 'aws eks update-kubeconfig --region us-east-1 --name new-cluster'
+                    bat 'aws eks update-kubeconfig --region us-east-1 --name springapp-cluster'
 
                    
                     bat 'kubectl version --client'
 
                    
-                    bat 'kubectl apply -f ./Deploy/deployment.yaml'
+                    bat 'kubectl apply -f ./deployment/deployment.yaml'
 
                   
-                    bat 'kubectl apply -f ./Deploy/service.yaml'
+                    bat 'kubectl apply -f ./deployment/service.yaml'
 
                     bat 'kubectl get services'
                 }
