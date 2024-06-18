@@ -7,21 +7,21 @@ variable "aws_region" {
 variable "ecr_repo" {
   description = "This defines the repository"
   type        = string
-  default = "springapp-cluster-repo"
+  default = "springapp1-cluster-repo"
   
 
 }
 variable "aws_eks_cluster" {
   description = "This defines the eks cluster"
   type        = string
-  default = "springapp-cluster"
+  default = "springapp1-cluster"
   
 
 }
 variable "aws_eks_node_group" {
   description = "This defines the eks cluster"
   type        = string
-  default     = "springapp-node-grp"
+  default     = "springapp1-node-grp"
 
 }
 
