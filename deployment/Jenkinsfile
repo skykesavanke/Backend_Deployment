@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     
-                    bat 'aws eks update-kubeconfig --region us-east-1 --name springapp-cluster'
+                    bat 'aws eks update-kubeconfig --region us-east-1 --name springapp1-cluster'
 
                    
                     bat 'kubectl version --client'
